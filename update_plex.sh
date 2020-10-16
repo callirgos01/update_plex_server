@@ -1,10 +1,10 @@
 echo setup...
-rm -rf /plex_data/tmp
-mkdir /plex_data/tmp
+rm -rf /tmp/plexserver
+mkdir /tmp/plexserver
 echo downloading...
-curl -s "https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&channel=16&distro=ubuntu" | grep -Po '(?<=url=\")(\S+)(?=\")' | xargs wget -P /plex_data/tmp/
+curl -s "https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&channel=16&distro=ubuntu" | grep -Po '(?<=url=\")(\S+)(?=\")' | xargs wget -P /tmp/plexserver/
 echo installing...
-sudo dpkg -i /plex_data/tmp/plexmediaserver*
+sudo dpkg -i /tmp/plexserver/plexmediaserver*
 echo cleanin up...
-rm -rf /plex_data/tmp
+rm -rf /tmp/plexserver
 echo update completed
